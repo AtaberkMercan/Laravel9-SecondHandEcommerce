@@ -8,7 +8,7 @@ use mysql_xdevapi\BaseResult;
 class HomeController extends Controller
 {
     public function index(){
-        echo "Merhaba Laravel";
+        return view('layouts.frontbase');
     }
     public function show(){
         $university="Karabuk University";

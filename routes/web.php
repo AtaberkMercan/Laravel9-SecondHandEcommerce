@@ -20,11 +20,11 @@ Route::get('/welcome',function(){
 Route::get('/text', function () {
     return 'WELCOME';
 });
-Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::get('/show',[HomeController::class,'show']);
 Route::get('/test',[HomeController::class,'test']);
 Route::get('/variable/{id}/{Key}',[HomeController::class,'variable']);
 Route::post('/save',[HomeController::class,'save'])->name('save');
+Route::get('/home',[HomeController::class,'index'])->name('home');
 Route::redirect('/here','show');
 
 
