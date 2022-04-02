@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +13,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/welcome',function(){
-    return view('welcome');
-});
-Route::get('/text', function () {
-    return 'WELCOME';
-});
-Route::get('/show',[HomeController::class,'show']);
-Route::get('/test',[HomeController::class,'test']);
-Route::get('/variable/{id}/{Key}',[HomeController::class,'variable']);
-Route::post('/save',[HomeController::class,'save'])->name('save');
-Route::get('/home',[HomeController::class,'index'])->name('home');
-Route::redirect('/here','show');
+    Route::get('/text', function () {
+        return 'WELCOME TO LARAVEL';
+    });
+    Route::get('/test',[HomeController::class,'test']);
+    Route::get('/home',[HomeController::class,'index'])->name('home');
+    Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+                  //************************************** ADMIN PANEL ***************
+    Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
 
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+
