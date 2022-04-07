@@ -8,7 +8,7 @@ use mysql_xdevapi\BaseResult;
 class HomeController extends Controller
 {
     public function index(){
-        return view('layouts.frontbase');
+        return view('Home.index');
     }
 
     public function test(){

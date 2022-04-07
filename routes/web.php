@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AdminHomeController;
+use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,7 @@ use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
     })->name('dashboard');
                   //************************************** ADMIN PANEL ***************
     Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
-
-
+    Route::get('/admin/Category',[CategoryController::class,'index'])->name('admin_Category');
+    Route::get('/admin/Category/create',[CategoryController::class,'create'])->name('admin_Category_create');
+    Route::post('/admin/Category/store',[CategoryController::class,'store'])->name('admin_Category_store');
 

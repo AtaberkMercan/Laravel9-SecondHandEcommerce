@@ -37,10 +37,7 @@
 <body>
 @include('home.header')
 @include('home.slider')
-@show
-
-@include('home.shoes')
-
+@yield('content')
 @include('home.footer')
 
 </body>
