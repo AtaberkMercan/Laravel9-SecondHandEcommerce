@@ -36,16 +36,16 @@
                                     <td>{{$rs->desc}}</td>
                                     <td>{{$rs->img}}</td>
                                     <td>{{$rs->stats}}</td>
-                                    <td><a href="/admin/Category/edit/{{$rs->id}}"><button type="button" class="btn btn-success btn-fw">Edit</button> </a> </td>
-                                    <td><a href="/admin/Category/destroy/{{$rs->id}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
-                                    <td><a href="/admin/Category/show/{{$rs->id}}"><button type="button" class="btn btn-primary btn-fw">Show</button></a></td>
+                                    <td><a href="{{route('admin.Category.edit',['id'=>$rs->id])}}"><button type="button" class="btn btn-success btn-fw">Edit</button> </a> </td>
+                                    <td><a href="{{route('admin.Category.destroy',['id'=>$rs->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
+                                    <td><a href="{{route('admin.Category.show',['id'=>$rs->id])}}"><button type="button" class="btn btn-primary btn-fw">Show</button></a></td>
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <a href="/admin/Category/create"><button type="button" class="btn btn-inverse-success btn-fw">Add Category</button></a>
+                    <a href="{{route('admin.Category.create')}}"><button type="button" class="btn btn-inverse-success btn-fw">Add Category</button></a>
                 </div>
 
             </div>

@@ -46,8 +46,8 @@
                                     <td> {{$data->updated_at}} </td>
                                 </tr>
                             </table>
-                            <a href="/admin/Category/edit/{{$data->id}}"><button type="button" class="btn btn-primary btn-fw">Edit</button></a>
-                            <td><a href="/admin/Category/destroy/{{$data->id}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
+                            <a href="{{route('admin.Category.edit',['id'=>$data->id])}}"><button type="button" class="btn btn-primary btn-fw">Edit</button></a>
+                            <td><a href="{{route('admin.Category.destroy',['id'=>$data->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
                         </div>
                     </div>
                 </div>

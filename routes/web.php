@@ -22,12 +22,17 @@ use Illuminate\Support\Facades\Route;
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-                  //************************************** ADMIN PANEL ***************
-    Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
-    Route::get('/admin/Category',[CategoryController::class,'index'])->name('admin_Category');
-    Route::get('/admin/Category/create',[CategoryController::class,'create'])->name('admin_Category_create');
-    Route::post('/admin/Category/store',[CategoryController::class,'store'])->name('admin_Category_store');
-    Route::get('/admin/Category/edit/{id}',[CategoryController::class,'edit'])->name('admin_Category_edit');
-    Route::post('/admin/Category/update/{id}',[CategoryController::class,'update'])->name('admin_Category_update');
-    Route::get('/admin/Category/show/{id}',[CategoryController::class,'show'])->name('admin_Category_show');
-    Route::get('/admin/Category/destroy/{id}',[CategoryController::class,'destroy'])->name('admin_Category_destroy');
+    //************************************** ADMIN PANEL ROUTES ***************//
+    Route::prefix('admin')->name('admin.')->group(function (){
+        Route::get('/',[AdminHomeController::class,'index'])->name('index');
+    //*****************************ADMIN CATEGORY ROUTES**************//
+    Route::prefix('/Category')->name('Category.')->controller(CategoryController::class)->group(function (){
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/show/{id}','show')->name('show');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+    });
+});

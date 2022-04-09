@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Category Elements</h4>
                         <p class="card-description"> Add Category </p>
-                        <form role="form" action="/admin/Category/store" method="post">
+                        <form role="form" action="{{route('admin.Category.create')}}" method="post">
                             @csrf
                             <div class="form-group" >
                                 <label for="exampleInputEmail1">Title</label>
