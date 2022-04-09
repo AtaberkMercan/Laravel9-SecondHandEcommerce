@@ -27,4 +27,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/admin/Category',[CategoryController::class,'index'])->name('admin_Category');
     Route::get('/admin/Category/create',[CategoryController::class,'create'])->name('admin_Category_create');
     Route::post('/admin/Category/store',[CategoryController::class,'store'])->name('admin_Category_store');
-
+    Route::get('/admin/Category/edit/{id}',[CategoryController::class,'edit'])->name('admin_Category_edit');
+    Route::post('/admin/Category/update/{id}',[CategoryController::class,'update'])->name('admin_Category_update');
+    Route::get('/admin/Category/show/{id}',[CategoryController::class,'show'])->name('admin_Category_show');
+    Route::get('/admin/Category/destroy/{id}',[CategoryController::class,'destroy'])->name('admin_Category_destroy');

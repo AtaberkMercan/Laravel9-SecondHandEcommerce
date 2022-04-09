@@ -44,6 +44,7 @@ class CategoryController extends Controller
         $data->desc=$request->desc;
         $data->stats=$request->stats;
         $data->save();
+        return redirect('admin/Category');
 
     }
 
@@ -53,9 +54,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category,$id)
     {
-     //
+        $data=Category::find($id);
+        return view('admin.Category.show',['data'=>$data]);
     }
 
     /**
@@ -64,9 +66,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $category,$id)
     {
-        //
+        $data=Category::find($id);
+        return view('admin.Category.edit',['data'=>$data]);
     }
 
     /**
@@ -76,9 +79,16 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category,$id)
     {
-        //
+        $data=Category::find($id);
+        $data->parent_id=0;
+        $data->title=$request->title;
+        $data->keys=$request->keys;
+        $data->desc=$request->desc;
+        $data->stats=$request->stats;
+        $data->save();
+        return redirect('admin/Category');
     }
 
     /**

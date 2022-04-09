@@ -56,86 +56,92 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
         </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+        <li class="nav-item menu-items active">
+            <a class="nav-link" href="/admin">
         <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
+          <i class="mdi mdi-home-variant"></i>
         </span>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-        <span class="menu-icon">
-          <i class="mdi mdi-laptop"></i>
-        </span>
-                <span class="menu-title">Basic UI Elements</span>
+            <a class="nav-link collapsed" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <span class="menu-icon">
+                <i class="mdi mdi-security"></i>
+              </span>
+                <span class="menu-title">Orders</span>
                 <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="collapse" id="auth" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/NewOrders">New Orders </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/AcceptedOrders">Accepted Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/ShippingOrders">Shipping Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/admin/CompletedOrders">Completed Orders</a></li>
                 </ul>
             </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="/admin/Category">
         <span class="menu-icon">
-          <i class="mdi mdi-playlist-play"></i>
+          <i class="mdi mdi-apps"></i>
         </span>
-                <span class="menu-title">Form Elements</span>
+                <span class="menu-title">Categories</span>
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
+            <a class="nav-link" href="/admin/product">
         <span class="menu-icon">
-          <i class="mdi mdi-table-large"></i>
+          <i class="mdi mdi-shopping"></i>
         </span>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Product</span>
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
+            <a class="nav-link" href="/admin/comments">
         <span class="menu-icon">
-          <i class="mdi mdi-chart-bar"></i>
+          <i class="mdi mdi-comment"></i>
         </span>
-                <span class="menu-title">Charts</span>
+                <span class="menu-title">Comments</span>
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="/admin/faq">
         <span class="menu-icon">
-          <i class="mdi mdi-contacts"></i>
+          <i class="mdi mdi-help"></i>
         </span>
-                <span class="menu-title">Icons</span>
+                <span class="menu-title">FAQ</span>
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" data-bs-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <a class="nav-link" href="/admin/messages">
         <span class="menu-icon">
-          <i class="mdi mdi-security"></i>
+          <i class="mdi mdi-message-reply-text"></i>
         </span>
-                <span class="menu-title">User Pages</span>
-                <i class="menu-arrow"></i>
+                <span class="menu-title">Messages</span>
             </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                </ul>
-            </div>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="documentation">
+            <a class="nav-link" href="/admin/social">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-mail-ru"></i>
+        </span> <span class="menu-title">Social</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/user">
+        <span class="menu-icon">
+          <i class="mdi mdi-account-box"></i>
         </span>
-                <span class="menu-title">Documentation</span>
+                <span class="menu-title">User</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/settings">
+        <span class="menu-icon">
+          <i class="mdi mdi-settings-box"></i>
+        </span>
+                <span class="menu-title">Settings</span>
             </a>
         </li>
     </ul>
