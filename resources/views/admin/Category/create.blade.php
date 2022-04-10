@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Category Elements</h4>
                         <p class="card-description"> Add Category </p>
-                        <form role="form" action="{{route('admin.Category.create')}}" method="post">
+                        <form role="form" action="{{route('admin.Category.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group" >
                                 <label for="exampleInputEmail1">Title</label>
@@ -32,14 +32,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Upload Image</label>
-
+                                <label>File upload</label>
                                 <div class="input-group col-xs-12">
-                                    <input type="file" name="img" class="custom-file-input">
-                                    <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload
-                            </button>
-                          </span>
+                                    <input type="file" class="form-control file-upload-info" name="img" placeholder="Upload Image">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary ">Save</button>

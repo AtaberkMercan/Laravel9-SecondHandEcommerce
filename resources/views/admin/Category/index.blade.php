@@ -34,7 +34,10 @@
                                     <td>{{$rs->title}}</td>
                                     <td>{{$rs->keys}}</td>
                                     <td>{{$rs->desc}}</td>
-                                    <td>{{$rs->img}}</td>
+                                    <td>@if($rs->img)
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($rs->img)}}" style="height:40px">
+                                        @endif
+                                    </td>
                                     <td>{{$rs->stats}}</td>
                                     <td><a href="{{route('admin.Category.edit',['id'=>$rs->id])}}"><button type="button" class="btn btn-success btn-fw">Edit</button> </a> </td>
                                     <td><a href="{{route('admin.Category.destroy',['id'=>$rs->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>

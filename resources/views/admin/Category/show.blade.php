@@ -31,7 +31,9 @@
                                 </tr>
                                 <tr>
                                     <th style="width: 30px">Image</th>
-                                    <td> {{$data->img}} </td>
+                                    <td> @if($data->img)
+                                            <img src="{{\Illuminate\Support\Facades\Storage::url($data->img)}}" style="height:40px">
+                                        @endif </td>
                                 </tr>
                                 <tr>
                                     <th style="width: 30px">Status</th>
