@@ -74,10 +74,10 @@
             </a>
             <div class="collapse" id="auth" style="">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="/admin/NewOrders">New Orders </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="/admin/AcceptedOrders">Accepted Orders</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="/admin/ShippingOrders">Shipping Orders</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="/admin/CompletedOrders">Completed Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/">New Orders </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/">Accepted Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/">Shipping Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="/">Completed Orders</a></li>
                 </ul>
             </div>
         </li>
@@ -90,7 +90,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/product">
+            <a class="nav-link" href="/admin/Product">
         <span class="menu-icon">
           <i class="mdi mdi-shopping"></i>
         </span>

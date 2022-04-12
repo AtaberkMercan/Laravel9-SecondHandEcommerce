@@ -1,6 +1,6 @@
 
 @extends('layouts.adminbase')
-@section('title','Show Category:'.$data->title)
+@section('title','Show Product:'.$data->title)
 @section('content')
     <!-- partial -->
     <div class="main-panel">
@@ -12,12 +12,16 @@
                         <p class="card-description">  <code>DETAILS</code>
                         </p>
                         <div class="table-responsive">
-                            <td><a href="{{route('admin.Category.edit',['id'=>$data->id])}}"><button type="button" class="btn btn-primary btn-fw">Edit</button></a></td>
-                            <td><a href="{{route('admin.Category.destroy',['id'=>$data->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
+                            <td><a href="{{route('admin.Product.edit',['id'=>$data->id])}}"><button type="button" class="btn btn-primary btn-fw">Edit</button></a></td>
+                            <td><a href="{{route('admin.Product.destroy',['id'=>$data->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
                             <table class="table table-bordered">
                                 <tr>
                                      <th style="width: 30px">Id</th>
                                      <td> {{$data->id}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Category</th>
+                                    <td> {{$data->category_id}} </td>
                                 </tr>
                                 <tr>
                                     <th style="width: 30px">Title</th>
@@ -30,6 +34,26 @@
                                 <tr>
                                     <th style="width: 30px">Description</th>
                                     <td> {{$data->desc}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Price</th>
+                                    <td> {{$data->price}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Quantity</th>
+                                    <td> {{$data->quantity}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Minimum Quantity</th>
+                                    <td> {{$data->minquantity}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Tax %</th>
+                                    <td> {{$data->tax}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Detail Info</th>
+                                    <td>{{$data->detail}}  </td>
                                 </tr>
                                 <tr>
                                     <th style="width: 30px">Status</th>
@@ -54,6 +78,7 @@
                                 @endif
                             </td>
                             </tr>
+
                         </div>
                     </div>
                 </div>
