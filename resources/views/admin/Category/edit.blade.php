@@ -12,6 +12,15 @@
                         <p class="card-description"> Edit  {{$data->title}} </p>
                         <form role="form" action="{{route('admin.Category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                             @csrf
+                            <div class="form-group">
+                                <label for="exampleSelectGender">Parent Category</label>
+                                <select class="form-control select2" name="parent_id">
+                                    <option value="0" selected="selected"> Main Category </option>
+                                    @foreach($datalist as $rs)
+                                        <option value ="{{$rs->id}}" @if($rs->id==$data->parent_id) selected="selected"@endif>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group" >
                                 <label for="exampleInputEmail1">Title</label>
                                 <input type="text" class="form-control" name="title" value="{{$data->title}}" >

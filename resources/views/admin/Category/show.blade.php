@@ -30,12 +30,6 @@
                                     <td> {{$data->desc}} </td>
                                 </tr>
                                 <tr>
-                                    <th style="width: 30px">Image</th>
-                                    <td> @if($data->img)
-                                            <img src="{{\Illuminate\Support\Facades\Storage::url($data->img)}}" style="height:40px">
-                                        @endif </td>
-                                </tr>
-                                <tr>
                                     <th style="width: 30px">Status</th>
                                     <td> {{$data->stats}} </td>
                                 </tr>
@@ -48,6 +42,16 @@
                                     <td> {{$data->updated_at}} </td>
                                 </tr>
                             </table>
+                            <tr>
+                                <th style="width: 30px">Image</th>
+                            <td>@if($data->img)
+                                    <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel owl-loaded owl-drag" >
+                                        <div class="owl-stage-outer"><div class="owl-stage" ><div class="owl-item cloned" ><div class="item">
+                                                        <img src="{{\Illuminate\Support\Facades\Storage::url($data->img)}}" alt="">
+                                                    </div></div>
+                                @endif
+                            </td>
+                            </tr>
                             <a href="{{route('admin.Category.edit',['id'=>$data->id])}}"><button type="button" class="btn btn-primary btn-fw">Edit</button></a>
                             <td><a href="{{route('admin.Category.destroy',['id'=>$data->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this category?')">Delete</button> </a></td>
                         </div>

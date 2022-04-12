@@ -16,9 +16,8 @@
                                 <tr>
                                     <th> # </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Id</button> </th>
+                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Parent</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Title</button> </th>
-                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Keywords</button> </th>
-                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Description</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Image</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Status</button> </th>
                                     <th style="width: 40px"><button type="button" class="btn btn-outline-secondary btn-fw">Edit</button></th>
@@ -31,11 +30,11 @@
                                 <tr>
                                     <td></td>
                                     <td>{{$rs->id}}</td>
+                                    <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</td>
                                     <td>{{$rs->title}}</td>
-                                    <td>{{$rs->keys}}</td>
-                                    <td>{{$rs->desc}}</td>
+
                                     <td>@if($rs->img)
-                                        <img src="{{\Illuminate\Support\Facades\Storage::url($rs->img)}}" style="height:40px">
+                                        <img src="{{\Illuminate\Support\Facades\Storage::url($rs->img)}}" class="rounded mx-auto d-block">
                                         @endif
                                     </td>
                                     <td>{{$rs->stats}}</td>
