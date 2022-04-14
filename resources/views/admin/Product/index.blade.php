@@ -21,6 +21,7 @@
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Price</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Quantity</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Image</button> </th>
+                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Image Gallery</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Status</button> </th>
                                     <th style="width: 40px"><button type="button" class="btn btn-outline-secondary btn-fw">Edit</button></th>
                                     <th style="width: 40px"><button type="button" class="btn btn-outline-secondary btn-fw">Delete</button></th>
@@ -39,6 +40,11 @@
                                     <td>@if($rs->img)
                                         <img src="{{\Illuminate\Support\Facades\Storage::url($rs->img)}}" class="rounded mx-auto d-block">
                                         @endif
+                                    </td>
+                                    <td> <a href="{{route('admin.image.index',['pid'=>$rs->id])}}"
+                                        onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
+                                        <img src="{{asset('assets')}}/admin/images/carousel/gallery.jpg">
+                                        </a>
                                     </td>
                                     <td>{{$rs->stats}}</td>
                                     <td><a href="{{route('admin.Product.edit',['id'=>$rs->id])}}"><button type="button" class="btn btn-success btn-fw">Edit</button> </a> </td>
