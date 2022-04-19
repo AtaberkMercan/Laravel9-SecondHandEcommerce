@@ -19,19 +19,19 @@
                 </div>
 
             </form>
-            <div class="row grid-margin ">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Prdoduct Image Gallery</h4>
                         <p class="card-description">List</p>
                         <div class="table-responsive">
-                            <table class="table-striped">
+                            <table class="table-striped table-bordered">
                                 <thead>
                                 <tr>
-                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Id Number</button> </th>
-                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Title</button> </th>
-                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Image</button> </th>
-                                    <th><button type="button" class="btn btn-outline-secondary btn-fw">Delete</button></th>
+                                    <th> <button type="button" class="btn btn-dark btn-fw">Id Number</button> </th>
+                                    <th> <button type="button" class="btn btn-dark btn-fw">Title</button> </th>
+                                    <th> <button type="button" class="btn btn-dark btn-fw">Image</button> </th>
+                                    <th><button type="button" class="btn btn-dark btn-fw">Delete</button></th>
 
                                 </tr>
                                 </thead>
