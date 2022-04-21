@@ -10,8 +10,8 @@ class HomeController extends Controller
 {
     public function index(){
         $sliderdata=Product::limit(2)->get();
-        $datalist1=Product::limit(6)->get();
-        return view('Home.index',['sliderdata'=>$sliderdata]);
+        $productlist1=Product::limit(6)->get();
+        return view('Home.index',['sliderdata'=>$sliderdata,'productlist1'=>$productlist1]);
     }
 
     public function test(){
