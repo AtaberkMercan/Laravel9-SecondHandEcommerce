@@ -1,44 +1,47 @@
 <html>
 <head>
+    <meta charset="utf-8">
     <title>@yield('title')</title>
-    <link href="{{asset('assets')}}/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{asset('assets')}}/js/jquery-1.11.0.min.js"></script>
-    <!-- Custom Theme files -->
-    <!--theme-style-->
-    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!--//theme-style-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Free Style Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
-    Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!--fonts-->
-    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-    <!--//fonts-->
-    <script type="text/javascript" src="{{asset('assets')}}/js/move-top.js"></script>
-    <script type="text/javascript" src="{{asset('assets')}}/js/easing.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-            });
-        });
-    </script>
-    <!-- start menu -->
-    <script src="{{asset('assets')}}/js/simpleCart.min.js"> </script>
-    <link href="{{asset('assets')}}/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
-    <script type="text/javascript" src="{{asset('assets')}}/js/memenu.js"></script>
-    <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
+    <!-- Favicon -->
+    <link href="{{asset('assets')}}/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{asset('assets')}}/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{asset('assets')}}/css/style.css" rel="stylesheet">
 </head>
 <body>
 @include('home.header')
 @include('home.slider')
 @yield('content')
 @include('home.footer')
+<!-- Back to Top -->
+<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('assets')}}/lib/easing/easing.min.js"></script>
+<script src="{{asset('assets')}}/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Contact Javascript File -->
+<script src="{{asset('assets')}}/mail/jqBootstrapValidation.min.js"></script>
+<script src="{{asset('assets')}}/mail/contact.js"></script>
+
+<!-- Template Javascript -->
+<script src="{{asset('assets')}}/js/main.js"></script>
 </body>
 </html>
