@@ -1,6 +1,9 @@
 
 @extends('layouts.adminbase')
 @section('title','Add Product')
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
     <!-- partial -->
     <div class="main-panel">
@@ -50,9 +53,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail3">Detail Info</label>
-                                <textarea class="form-control" name="detail">
-
+                                <textarea class="form-control" id="detail" name="detail">
                                 </textarea>
+                                <script>
+                                    ClassicEditor
+                                    .create(document.querySelector('#detail'))
+                                    .then(editor=>{console.log(editor);})
+                                    .catch(error=>{console.error(error);})
+                                </script>
 
                             </div>
                             <div class="form-group">

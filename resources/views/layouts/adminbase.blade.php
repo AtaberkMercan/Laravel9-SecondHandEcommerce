@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset('assets')}}/admin/images/favicon.png" />
+    @yield("head")
 </head>
 <body>
 
