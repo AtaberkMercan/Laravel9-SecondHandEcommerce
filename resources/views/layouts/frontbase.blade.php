@@ -24,7 +24,15 @@
 </head>
 <body>
 @include('home.header')
-@include('home.slider')
+<div class="container-fluid mb-5">
+    <div class="row border-top px-xl-5">
+        <div class="col-lg-3 d-none d-lg-block">
+        @include('home.sidebar')
+                @include('home.slider')
+        </div>
+    </div>
+</div>
+
 @yield('content')
 @include('home.footer')
 <!-- Back to Top -->
