@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
     });
     Route::get('/test',[HomeController::class,'test']);
     Route::get('/home',[HomeController::class,'index'])->name('home');
+    Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');

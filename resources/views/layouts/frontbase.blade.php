@@ -27,14 +27,16 @@
 <div class="container-fluid mb-5">
     <div class="row border-top px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
-        @include('home.sidebar')
-                @include('home.slider')
+            @section('sidebar')
+            @show
+                @section('slider')
+                @show
         </div>
     </div>
 </div>
-
 @yield('content')
-@include('home.footer')
+@include("home.footer")
+
 <!-- Back to Top -->
 <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
