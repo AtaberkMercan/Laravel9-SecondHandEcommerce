@@ -22,5 +22,13 @@ class HomeController extends Controller
         $productlist1=Product::limit(5)->get();
         return view('home.product',['data'=>$data,'productlist1'=>$productlist1,'images'=>$images]);
     }
+    public function categoryproducts($id){
+        $category=Category::find($id);
+        $products=DB::table('products')->where('category_id',$id)->get();
+        return view('home.categoryproducts',['category'=>$category,'products'=>$products]);
+    }
+    public static function maincategorylist(){
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
 
 }
