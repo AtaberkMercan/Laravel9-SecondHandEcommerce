@@ -141,7 +141,7 @@
                     <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                         <h6 class="text-truncate mb-3">{{$rs->title}}</h6>
                         <div class="d-flex justify-content-center">
-                            <h6>{{$rs->price}}</h6><h6 class="text-muted ml-2"><del>{{$rs->price*1.17}}</del></h6>
+                            <h6>{{$rs->price}}$</h6><h6 class="text-muted ml-2"><del>{{$rs->price*1.17}}$</del></h6>
                         </div>
                     </div>
                     <div class="card-footer d-flex justify-content-between bg-light border">
@@ -184,8 +184,6 @@
                     </div>
                 </div>
             </div>
-
-
 
             @endforeach
         </div>
