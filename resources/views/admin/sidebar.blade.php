@@ -137,7 +137,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/settings">
+            <a class="nav-link" href="/admin/setting">
         <span class="menu-icon">
           <i class="mdi mdi-settings-box"></i>
         </span>

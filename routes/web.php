@@ -29,7 +29,10 @@ Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryprodu
     //************************************** ADMIN PANEL ROUTES ***************//
     Route::prefix('admin')->name('admin.')->group(function (){
         Route::get('/',[AdminHomeController::class,'index'])->name('index');
-    //*****************************ADMIN CATEGORY ROUTES**************//
+        //************************************** GENERAL ROUTES  ***************//
+        Route::get('/setting',[AdminHomeController::class,'setting'])->name('setting');
+        Route::post('/setting',[AdminHomeController::class,'settingupdate'])->name('setting.update');
+       //*****************************ADMIN CATEGORY ROUTES**************//
     Route::prefix('/Category')->name('Category.')->controller(CategoryController::class)->group(function (){
         Route::get('/','index')->name('index');
         Route::get('/create','create')->name('create');

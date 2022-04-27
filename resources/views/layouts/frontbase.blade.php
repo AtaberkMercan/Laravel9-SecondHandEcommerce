@@ -2,6 +2,10 @@
 <head>
     <meta charset="utf-8">
     <title>@yield('title')</title>
+    <meta name="desc" content="@yield('desc')">
+    <meta name="keys" content="@yield('keys')">
+    <meta name="author" content="Ataberk Mercan">
+    <link rel="icon" type="image/x-icon" href="@yield('icon')">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">

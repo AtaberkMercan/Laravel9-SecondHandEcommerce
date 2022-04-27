@@ -1,5 +1,8 @@
 @extends('layouts.frontbase')
-@section('title', '2nd-Hand-E-Commerce Project')
+@section('title',$setting->title)
+@section('desc',$setting->desc)
+@section('keys',$setting->keys)
+@section('icon',\Illuminate\Support\Facades\Storage::url($setting->icon))
             @section('sidebar')
                 @include('home.sidebar')
             @endsection

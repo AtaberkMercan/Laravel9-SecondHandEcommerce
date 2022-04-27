@@ -30,9 +30,9 @@
 <div class="container-fluid page-body-wrapper">
     @include('admin.header')
     @yield('content')
-    @include('admin.footer')
 </div>
 </div>
+@include('admin.footer')
 <script src="{{asset('assets')}}/admin/vendors/js/vendor.bundle.base.js"></script>
 <script src="{{asset('assets')}}/admin/vendors/chart.js/Chart.min.js"></script>
 <script src="{{asset('assets')}}/admin/vendors/progressbar.js/progressbar.min.js"></script>
