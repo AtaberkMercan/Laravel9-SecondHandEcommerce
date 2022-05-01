@@ -19,13 +19,19 @@ use Illuminate\Support\Facades\Route;
     Route::get('/text', function () {
         return 'WELCOME TO LARAVEL';
     });
-    Route::get('/test',[HomeController::class,'test']);
+   //*****************************HOME PAGE ROUTES***************************//
     Route::get('/home',[HomeController::class,'index'])->name('home');
+    Route::get('/about',[HomeController::class,'about'])->name('about');
+    Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+    Route::get('/references',[HomeController::class,'references'])->name('references');
+    //*************************************************************************//
     Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
-Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
+    Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    // TEST//
+    Route::get('/test',[HomeController::class,'test']);
     //************************************** ADMIN PANEL ROUTES ***************//
     Route::prefix('admin')->name('admin.')->group(function (){
         Route::get('/',[AdminHomeController::class,'index'])->name('index');

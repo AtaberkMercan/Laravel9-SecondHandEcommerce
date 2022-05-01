@@ -17,6 +17,18 @@ class HomeController extends Controller
         $setting=Setting::first();
         return view('home.index',['sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'setting'=>$setting]);
     }
+    public function about(){
+        $setting=Setting::first();
+        return view('home.about',['setting'=>$setting]);
+    }
+    public function contact(){
+        $setting=Setting::first();
+        return view('home.contact',['setting'=>$setting]);
+    }
+    public function references(){
+        $setting=Setting::first();
+        return view('home.references',['setting'=>$setting]);
+    }
 
     public function product($id){
         $data=Product::find($id);

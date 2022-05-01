@@ -5,8 +5,8 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
             <h6 class="m-0">Categories</h6>
             <i class="fa fa-angle-down text-dark"></i>
         </a>
-        <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0" id="navbar-vertical">
-            <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+        <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
+            <div class="navbar-nav w-100 overflow-hidden" style="height: 410px" style="height: 410px">
                 @foreach($mainCategories as $rs)
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link" data-toggle="dropdown">{{$rs->title}}<i class="fa fa-angle-down float-right mt-1"></i></a>
@@ -31,13 +31,18 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Contact</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Shopping</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="contact.html" class="nav-item nav-link">Shopping</a>
                             <a href="cart.html" class="dropdown-item">Shopping Cart</a>
                         </div>
+                    </div>
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="{{route('about')}}" class="nav-item nav-link">About Us</a>
+                        <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
+                        <a href="{{route('references')}}" class="nav-item nav-link">References</a>
                     </div>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
