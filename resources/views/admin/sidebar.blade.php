@@ -114,7 +114,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/messages">
+            <a class="nav-link" href="{{route('admin.message.index')}}">
         <span class="menu-icon">
           <i class="mdi mdi-message-reply-text"></i>
         </span>

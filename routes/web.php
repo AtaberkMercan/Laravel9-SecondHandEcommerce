@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPanel\AdminHomeController;
 use App\Http\Controllers\AdminPanel\AdminProductController;
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\ImageController;
+use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 /*
@@ -24,6 +25,7 @@ use Illuminate\Support\Facades\Route;
     Route::get('/about',[HomeController::class,'about'])->name('about');
     Route::get('/contact',[HomeController::class,'contact'])->name('contact');
     Route::get('/references',[HomeController::class,'references'])->name('references');
+    Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
     //*************************************************************************//
     Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
     Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
@@ -63,5 +65,12 @@ use Illuminate\Support\Facades\Route;
             Route::get('/{pid}','index')->name('index');
             Route::post('/store/{pid}','store')->name('store');
             Route::get('/destroy/{pid}/{id}','destroy')->name('destroy');
+        });
+        //*****************************ADMIN Messages ROUTES**************//
+        Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function (){
+            Route::get('/','index')->name('index');
+            Route::get('/show/{id}','show')->name('show');
+            Route::post('/update/{id}','update')->name('update');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
         });
 });
