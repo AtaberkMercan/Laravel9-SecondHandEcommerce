@@ -128,7 +128,8 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail3">About Us</label>
                                             <textarea class="form-control" id="aboutus" name="aboutus">
-                                </textarea>
+                                            {{$data->aboutus}}
+                                            </textarea>
                                             <script>
                                                 ClassicEditor
                                                     .create(document.querySelector('#aboutus'))
@@ -142,7 +143,8 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail3">Contact Us</label>
                                             <textarea class="form-control" id="contact" name="contact">
-                                </textarea>
+                                                {{$data->contact}}
+                                           </textarea>
                                             <script>
                                                 ClassicEditor
                                                         .create(document.querySelector('#contact'))
@@ -155,7 +157,8 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail3">References</label>
                                             <textarea class="form-control" id="references" name="references">
-                                </textarea>
+                                                {{$data->references}}
+                                            </textarea>
                                             <script>
                                                 ClassicEditor
                                                     .create(document.querySelector('#references'))

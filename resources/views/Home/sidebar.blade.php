@@ -43,6 +43,7 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
                         <a href="{{route('about')}}" class="nav-item nav-link">About Us</a>
                         <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
                         <a href="{{route('references')}}" class="nav-item nav-link">References</a>
+                        <a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a>
                     </div>
                 </div>
                 <div class="navbar-nav ml-auto py-0">
