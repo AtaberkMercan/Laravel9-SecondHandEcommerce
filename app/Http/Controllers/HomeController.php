@@ -13,10 +13,11 @@ use mysql_xdevapi\BaseResult;
 class HomeController extends Controller
 {
     public function index(){
+        $page='home';
         $sliderdata=Product::limit(4)->get();
         $productlist1=Product::limit(6)->get();
         $setting=Setting::first();
-        return view('home.index',['sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'setting'=>$setting]);
+        return view('home.index',['page'=>$page,'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'setting'=>$setting]);
     }
     public function about(){
         $setting=Setting::first();
@@ -43,10 +44,11 @@ class HomeController extends Controller
     }
 
     public function product($id){
+        $setting=Setting::first();
         $data=Product::find($id);
         $images=DB::table('images')->where('product_id',$id)->get();
         $productlist1=Product::limit(5)->get();
-        return view('home.product',['data'=>$data,'productlist1'=>$productlist1,'images'=>$images]);
+        return view('home.product',['data'=>$data,'productlist1'=>$productlist1,'images'=>$images,'setting'=>$setting]);
     }
     public function categoryproducts($id){
         $category=Category::find($id);
