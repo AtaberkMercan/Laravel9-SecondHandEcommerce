@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Message;
 use App\Models\Product;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use mysql_xdevapi\BaseResult;
+use PhpParser\Node\Expr\New_;
 
 class HomeController extends Controller
 {
@@ -49,13 +52,24 @@ class HomeController extends Controller
         $data->save();
         return redirect()->route('contact')->with('info','Your Message Has Been Sent,Thanks.');
     }
-
+    public function storecomment(Request $request){
+        $data=New Comment();
+        $data->user_id=Auth::id();
+        $data->product_id=$request->input('product_id');
+        $data->subject=$request->input('subject');
+        $data->review=$request->input('review');
+        $data->rate=$request->input('rate');
+        $data->ip=request()->ip();
+        $data->save();
+        return redirect()->route('product',['id'=>$request->input('product_id')])->with('info','Your Comment Has Been Sent,Thanks.');
+    }
     public function product($id){
         $setting=Setting::first();
         $data=Product::find($id);
         $images=DB::table('images')->where('product_id',$id)->get();
+        $reviews=Comment::where('product_id',$id)->where('status','True')->get();
         $productlist1=Product::limit(5)->get();
-        return view('home.product',['data'=>$data,'productlist1'=>$productlist1,'images'=>$images,'setting'=>$setting]);
+        return view('home.product',['data'=>$data,'productlist1'=>$productlist1,'images'=>$images,'setting'=>$setting,'reviews'=>$reviews]);
     }
     public function categoryproducts($id){
         $category=Category::find($id);
