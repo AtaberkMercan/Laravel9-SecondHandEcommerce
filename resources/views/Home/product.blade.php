@@ -50,13 +50,17 @@
                 <h3 class="font-weight-semi-bold">{{$data->title}}</h3>
                 <div class="d-flex mb-3">
                     <div class="text-primary mr-2">
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star"></small>
-                        <small class="fas fa-star-half-alt"></small>
-                        <small class="far fa-star"></small>
+                        @php
+                        $average=$data->comment->average('rate')
+                        @endphp
+                        {{number_format($average,2)}}
+                        <small class="fas fa-star @if ($average<1)  fa fa-star-half-alt @endif"></small>
+                        <small class="fas fa-star @if ($average<2)  fa fa-star-half-alt @endif"></small>
+                        <small class="fas fa-star @if ($average<3)  fa fa-star-half-alt @endif"></small>
+                        <small class="fas fa-star @if ($average<4)  fa fa-star-half-alt @endif"></small>
+                        <small class="far fa-star @if ($average<5)  fa fa-star-half-alt @endif"></small>
                     </div>
-                    <small class="pt-1">(50 Reviews)</small>
+                    <small class="pt-1">({{$data->comment->count('id')}})</small>
                 </div>
                 <h3 class="font-weight-semi-bold mb-4">{{$data->price}}$</h3>
                 <p class="mb-4">{{$data->desc}}</p>
@@ -150,7 +154,7 @@
                 <div class="nav nav-tabs justify-content-center border-secondary mb-4">
                     <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Detail</a>
                     <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews ({{$data->comment->count('id')}})</a>
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="tab-pane-1">
