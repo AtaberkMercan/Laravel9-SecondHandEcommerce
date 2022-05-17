@@ -25,6 +25,6 @@
 @if($errors->any())
     <div class="alert alert-danger" >
         <button type="button" class="close" data-dismiss="alert"> x </button>
-        Check The Errors...
+        The provided credentials do not match our records...
     </div>
 @endif
