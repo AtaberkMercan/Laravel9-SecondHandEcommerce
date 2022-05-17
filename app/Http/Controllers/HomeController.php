@@ -79,5 +79,11 @@ class HomeController extends Controller
     public static function maincategorylist(){
         return Category::where('parent_id','=',0)->with('children')->get();
     }
+    public function logout(Request $request){
+    Auth::logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('home');
+    }
 
 }

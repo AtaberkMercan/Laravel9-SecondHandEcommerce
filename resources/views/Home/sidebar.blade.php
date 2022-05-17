@@ -46,10 +46,18 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
                         <a href="{{route('faq')}}" class="nav-item nav-link">FAQ</a>
                     </div>
                 </div>
+                @guest
+                    <div class="navbar-nav ml-auto py-0">
+                        <a href="/loginuser" class="nav-item nav-link">Login</a>
+                        <a href="/registeruser" class="nav-item nav-link">Register</a>
+                    </div>
+                @endguest
+                @auth
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="" class="nav-item nav-link">Login</a>
-                    <a href="" class="nav-item nav-link">Register</a>
+                    <a href="/dashboard" class="nav-item nav-link">{{Auth::user()->name}}</a>
+                    <a href="/logoutuser" class="nav-item nav-link">Logout</a>
                 </div>
+                @endauth
             </div>
         </nav>
 

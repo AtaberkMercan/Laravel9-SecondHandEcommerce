@@ -30,6 +30,9 @@ use Illuminate\Support\Facades\Route;
     Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
     Route::get('/faq',[HomeController::class,'faq'])->name('faq');
     Route::post('/storecomment',[HomeController::class,'storecomment'])->name('storecomment');
+    Route::view('/loginuser','home.login');
+    Route::view('/registeruser','home.register');
+    Route::get('/logoutuser',[HomeController::class,'logout'])->name('logoutuser');
 //*************************************************************************//
     Route::get('/product/{id}',[HomeController::class,'product'])->name('product');
     Route::get('/categoryproducts/{id}/{slug}',[HomeController::class,'categoryproducts'])->name('categoryproducts');
