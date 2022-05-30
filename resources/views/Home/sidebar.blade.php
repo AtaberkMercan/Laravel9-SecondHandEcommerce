@@ -33,10 +33,9 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
                 <div class="navbar-nav mr-auto py-0">
                     <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Shopping</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">User Profile</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="contact.html" class="nav-item nav-link">Shopping</a>
-                            <a href="cart.html" class="dropdown-item">Shopping Cart</a>
+                            <a href="{{route('userprofile')}}" class="nav-item nav-link">User Panel</a>
                         </div>
                     </div>
                     <div class="navbar-nav ml-auto py-0">
@@ -54,7 +53,7 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
                 @endguest
                 @auth
                 <div class="navbar-nav ml-auto py-0">
-                    <a href="/dashboard" class="nav-item nav-link">{{Auth::user()->name}}</a>
+                    <a href="/userprofile" class="nav-item nav-link">{{Auth::user()->name}}</a>
                     <a href="/logoutuser" class="nav-item nav-link">Logout</a>
                 </div>
                 @endauth

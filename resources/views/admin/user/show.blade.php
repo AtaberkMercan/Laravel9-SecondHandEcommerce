@@ -28,6 +28,14 @@
                                     <td> {{$data->email}} </td>
                                 </tr>
                                 <tr>
+                                    <th style="width: 30px">Phone</th>
+                                    <td> {{$data->phone}} </td>
+                                </tr>
+                                <tr>
+                                    <th style="width: 30px">Address</th>
+                                    <td> {{$data->address}} </td>
+                                </tr>
+                                <tr>
                                     <th style="width: 30px">Roles</th>
                                      <td> @foreach($data->roles as $role)
                                                    {{$role->name}}

@@ -17,6 +17,8 @@
                                     <th> # </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Name</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">E-Mail</button> </th>
+                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Phone</button> </th>
+                                    <th> <button type="button" class="btn btn-outline-secondary btn-fw">Address</button> </th>
                                     <th> <button type="button" class="btn btn-outline-secondary btn-fw">Role</button> </th>
                                     <th style="width: 40px"><button type="button" class="btn btn-outline-secondary btn-fw">Show</button></th>
                                     <th style="width: 40px"><button type="button" class="btn btn-outline-secondary btn-fw">Delete</button></th>
@@ -28,6 +30,8 @@
                                     <td>{{$rs->id}}</td>
                                     <td>{{$rs->name}}</td>
                                     <td>{{$rs->email}}</td>
+                                    <td>{{$rs->phone}}</td>
+                                    <td>{{$rs->address}}</td>
                                     <td>@foreach($rs->roles as $role)
                                             {{$role->name}}
                                         @endforeach</td>
