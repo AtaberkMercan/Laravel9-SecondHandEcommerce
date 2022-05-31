@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\UserProductController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -114,9 +115,29 @@ use Illuminate\Support\Facades\Route;
         });
 
 });
-Route::middleware('auth')->prefix('userprofile')->namespace('userprofile')->group(function (){
-    Route::get('/',[userController::class,'index'])->name('userprofile');
+Route::middleware('auth')->prefix('myaccount')->name('myaccount.')->group(function (){
+    Route::get('/',[userController::class,'index'])->name('myprofile');
+    Route::get('/myreviews',[userController::class,'myreviews'])->name('myreviews');
+    Route::get('/destroyreview/{id}',[userController::class,'destroyreview'])->name('destroyreview');
 });
+Route::middleware('auth')->prefix('user')->name('user.')->group(function (){
+        Route::prefix('/Product')->name('Product.')->controller(UserProductController::class)->group(function (){
+        Route::get('/','index')->name('index');
+        Route::get('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/show/{id}','show')->name('show');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+    });
+    Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function (){
+        Route::get('/{pid}','index')->name('index');
+        Route::post('/store/{pid}','store')->name('store');
+        Route::get('/destroy/{pid}/{id}','destroy')->name('destroy');
+    });
+
+});
+
 
 
 

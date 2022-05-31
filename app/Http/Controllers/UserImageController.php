@@ -2,33 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class userController extends Controller
+class UserImageController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($pid)
     {
-
-
-        return view('home.user_profile');
+        $product=Product::find($pid);
+        $images=Image::where('product_id',$pid);
+        $images=DB::table('images')->where('product_id',$pid)->get();
+        return view('home.user_product_image_create',['product'=>$product,'images'=>$images]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -36,20 +27,16 @@ class userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$pid)
     {
-        //
-    }
-    public function myreviews(){
-    $datalist = Comment::where('user_id','=',Auth::user()->id)->get();
-    return view('home.user_reviews',['datalist'=>$datalist]);
-    }
-    public function destroyreview(Comment $comment , $id){
-        $data=Comment::find($id);
-        $data->delete();
-        return redirect()->back()->with('success','Review Deleted');
-
-
+        $data=new Image();
+        $data->product_id=$pid;
+        $data->title=$request->title;
+        if($request->file('img')){
+            $data->img=$request->file('img')->store('images');
+        }
+        $data->save();
+        return redirect()->back();
     }
 
     /**
@@ -81,7 +68,7 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$pid, $id)
     {
         //
     }
@@ -92,8 +79,13 @@ class userController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($pid,$id)
     {
-        //
+        $data=Image::find($id);
+        if($data->img && Storage::disk('public')->exists($data->img)){
+            Storage::delete($data->img);
+        }
+        $data->delete();
+        return redirect()->back();
     }
 }

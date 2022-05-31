@@ -1,26 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\AdminPanel;
-
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
-class AdminProductController extends Controller
+class UserProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        $data=Product::all();
-        return view('admin.Product.index',['data'=>$data]);
+        $data=Product::where('user_id',Auth::id())->get();
+        return view('home.user_Product',['data'=>$data]);
     }
 
     /**
@@ -31,7 +27,7 @@ class AdminProductController extends Controller
     public function create()
     {
         $data=Category::all();
-        return view('admin.Product.create',['data'=>$data]);
+        return view('home.user_Product_create',['data'=>$data]);
 
     }
 
@@ -59,7 +55,7 @@ class AdminProductController extends Controller
             $data->img=$request->file('img')->store('images');
         }
         $data->save();
-        return redirect('admin/Product');
+        return redirect('user/Product');
 
     }
 
@@ -72,7 +68,7 @@ class AdminProductController extends Controller
     public function show(Product $product,$id)
     {
         $data=Product::find($id);
-        return view('admin.Product.show',['data'=>$data]);
+        return view('home.user_Product_show',['data'=>$data]);
     }
 
     /**
@@ -85,7 +81,7 @@ class AdminProductController extends Controller
     {
         $data=Product::find($id);
         $datalist=Category::all();
-        return view('admin.Product.edit',['data'=>$data,'datalist'=>$datalist]);
+        return view('home.user_Product_edit',['data'=>$data,'datalist'=>$datalist]);
     }
 
     /**
@@ -113,7 +109,7 @@ class AdminProductController extends Controller
             $data->img=$request->file('img')->store('images');
         }
         $data->save();
-        return redirect('admin/Product');
+        return redirect('user/Product');
     }
 
     /**
@@ -126,9 +122,9 @@ class AdminProductController extends Controller
     {
         $data=Product::find($id);
         if($data->img && Storage::disk('public')->exists($data->img)){
-        Storage::delete($data->img);
+            Storage::delete($data->img);
         }
         $data->delete();
-        return redirect('admin/Product');
+        return redirect('user/Product');
     }
 }
