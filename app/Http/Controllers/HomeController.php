@@ -19,7 +19,8 @@ class HomeController extends Controller
     public function index(){
         $page='home';
         $sliderdata=Product::limit(4)->get();
-        $productlist1=Product::limit(6)->get();
+        $productlist1 = Product::inRandomOrder()->limit(8)->get();
+        //$productlist2= Product::orderByDesc('created_at')->offset(8)->limit(8)->get();
         $setting=Setting::first();
         return view('home.index',['page'=>$page,'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'setting'=>$setting]);
     }

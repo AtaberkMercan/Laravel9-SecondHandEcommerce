@@ -24,7 +24,7 @@
             </div>
 
             <div class="col-lg-9 col-md-12">
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example1" class="table table-bordered ">
                     <thead>
                     <tr>
                         <th> Id </th>

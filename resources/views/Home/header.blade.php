@@ -47,15 +47,20 @@
                     </div>
                 </div>
             </form>
+            @include('home.messages')
         </div>
         <div class="col-lg-3 col-6 text-right">
-            <a href="" class="btn border">
-                <i class="fas fa-heart text-primary"></i>
-                <span class="badge">0</span>
+            <a href="{{route('myaccount.myprofile')}}" class="btn border">
+                <i class="fas fa-user text-primary"></i>
+                <span class="badge"></span>
             </a>
-            <a href="" class="btn border">
+            <a href="{{route('myaccount.myreviews')}}" class="btn border">
+                <i class="fas fa-heart text-primary"></i>
+                <span class="badge"></span>
+            </a>
+            <a href="{{route('user.shopcart.index')}}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
+                <span class="badge">{{\App\Http\Controllers\ShopcartController::countshopcart()}}</span>
             </a>
         </div>
     </div>

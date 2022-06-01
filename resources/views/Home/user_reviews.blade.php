@@ -49,7 +49,7 @@
                             <td>{{$rs->rate}}</td>
                             <td>{{$rs->status}}</td>
                             <td>{{$rs->created_at}}</td>
-                            <td><a href="{{route('myaccount.destroyreview',['id'=>$rs->id])}}"><button type="button" class="btn-inverse-danger" onclick="return confirm('Are you sure to delete this Message?')">Delete</button> </a></td>
+                            <td><a href="{{route('myaccount.destroyreview',['id'=>$rs->id])}}"><button type="button" class="btn btn-danger btn-fw" onclick="return confirm('Are you sure to delete this Message?')">Delete</button> </a></td>
                         </tr>
                     </tbody>
                     @endforeach
