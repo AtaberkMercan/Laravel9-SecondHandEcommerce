@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,8 +17,8 @@ class userController extends Controller
     public function index()
     {
 
-
-        return view('home.user_profile');
+        $setting=Setting::first();
+        return view('home.user_profile',['setting'=>$setting]);
     }
 
     /**
@@ -41,8 +42,9 @@ class userController extends Controller
         //
     }
     public function myreviews(){
-    $datalist = Comment::where('user_id','=',Auth::user()->id)->get();
-    return view('home.user_reviews',['datalist'=>$datalist]);
+        $setting=Setting::first();
+        $datalist = Comment::where('user_id','=',Auth::user()->id)->get();
+    return view('home.user_reviews',['datalist'=>$datalist,'setting'=>$setting]);
     }
     public function destroyreview(Comment $comment , $id){
         $data=Comment::find($id);

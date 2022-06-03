@@ -1,5 +1,5 @@
 @extends('layouts.frontbase')
-@section('title','My Shopcart')
+@section('title','Order Items')
 @section('sidebar')
     @include('home.sidebar')
 @endsection
@@ -7,11 +7,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">My Shopcart</h1>
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Order Items</h1>
             <div class="d-inline-flex">
                 <p class="m-0"><a href="{{route('home')}}">Home</a></p>
                 <p class="m-0 px-2">-</p>
-                <p class="m-0">My Shopcart</p>
+                <p class="m-0">Order Items</p>
             </div>
         </div>
     </div>
@@ -31,15 +31,16 @@
                         <th>Product</th>
                         <th>Price</th>
                         <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Remove</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Note</th>
                     </tr>
                     </thead>
                     <tbody class="align-middle">
                     @php
                     $total=0;
                     @endphp
-                    @foreach($data as $rs)
+                    @foreach($datalist as $rs)
                     <tr>
                         <td>
                             @if($rs->product->img)
@@ -52,19 +53,12 @@
                         </td>
                         <td class="align-middle">{{$rs->product->price}}</td>
                         <td class="align-middle">
-                            <div class="input-group quantity mx-auto" style="width: 100px;">
-                                <form action="{{route('user.shopcart.update',['id'=>$rs->id])}}" method="post">
-                                    @csrf
-                                <input  name="quantity"  type="number" value="{{$rs->quantity}}" min="1" max="{{$rs->product->quantity}}" onchange="this.form.submit()">
-                                </form>
-                            </div>
+                            {{$rs->quantity}}
                         </td>
-                        <td class="align-middle">{{$rs->quantity*$rs->product->price}}</td>
-                        <td><a href="{{route('user.shopcart.destroy',['id'=>$rs->id])}}" class="align-middle"><button class="btn btn-sm btn-primary" onclick="return confirm('Are you sure to delete this Message?')"><i class="fa fa-times"></i></button></a></td>
+                        <td class="align-middle">{{$rs->amount}}</td>
+                        <td class="align-middle">{{$rs->status}}</td>
+                        <td class="align-middle">{{$rs->note}}</td>
                     </tr>
-                    @php
-                        $total+=$rs->product->price*$rs->quantity;
-                    @endphp
                     @endforeach
                     </tbody>
                 </table>
@@ -75,23 +69,14 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3 pt-1">
                             <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 class="font-weight-medium">{{$total}}</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium">Free</h6>
+                            <h6 class="font-weight-medium">{{$rs->order->total}}</h6>
                         </div>
                     </div>
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{$total}}</h5>
+                            <h5 class="font-weight-bold">{{$rs->order->total}}</h5>
                         </div>
-                        <form action="{{route('user.order.create')}}" method="post">
-                            @csrf
-                            <h5 class="font-weight-bold"><input type="hidden" name="total" value="{{$total}}"></h5>
-                            <button class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</button>
-                        </form>
                     </div>
                 </div>
             </div>

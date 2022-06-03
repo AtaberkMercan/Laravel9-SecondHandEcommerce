@@ -20,9 +20,9 @@ class HomeController extends Controller
         $page='home';
         $sliderdata=Product::limit(4)->get();
         $productlist1 = Product::inRandomOrder()->limit(8)->get();
-        //$productlist2= Product::orderByDesc('created_at')->offset(8)->limit(8)->get();
+        $productlist2= Product::orderByDesc('created_at')->skip(0)->take(4)->get();
         $setting=Setting::first();
-        return view('home.index',['page'=>$page,'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'setting'=>$setting]);
+        return view('home.index',['page'=>$page,'sliderdata'=>$sliderdata,'productlist1'=>$productlist1,'setting'=>$setting,'productlist2'=>$productlist2]);
     }
     public function about(){
         $setting=Setting::first();
@@ -51,7 +51,7 @@ class HomeController extends Controller
         $data->message = $request->input('message');
         $data->ip=request()->ip();
         $data->save();
-        return redirect()->route('contact')->with('info','Your Message Has Been Sent,Thanks.');
+        return redirect()->route('contact',[])->with('info','Your Message Has Been Sent,Thanks.');
     }
     public function storecomment(Request $request){
         $data=New Comment();
@@ -74,8 +74,9 @@ class HomeController extends Controller
     }
     public function categoryproducts($id){
         $category=Category::find($id);
+        $setting=Setting::first();
         $products=DB::table('products')->where('category_id',$id)->get();
-        return view('home.categoryproducts',['category'=>$category,'products'=>$products]);
+        return view('home.categoryproducts',['category'=>$category,'products'=>$products,'setting'=>$setting]);
     }
     public static function maincategorylist(){
         return Category::where('parent_id','=',0)->with('children')->get();

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class UserImageController extends Controller
@@ -13,10 +14,11 @@ class UserImageController extends Controller
      */
     public function index($pid)
     {
+        $setting=Setting::first();
         $product=Product::find($pid);
         $images=Image::where('product_id',$pid);
         $images=DB::table('images')->where('product_id',$pid)->get();
-        return view('home.user_product_image_create',['product'=>$product,'images'=>$images]);
+        return view('home.user_product_image_create',['product'=>$product,'images'=>$images,'setting'=>$setting]);
     }
 
 

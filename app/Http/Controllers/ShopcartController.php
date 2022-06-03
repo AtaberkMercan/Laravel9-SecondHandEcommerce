@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use App\Models\Shopcart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +20,9 @@ class ShopcartController extends Controller
      */
     public function index()
     {
+        $setting=Setting::first();
         $data=Shopcart::where('user_id',Auth::id())->get();
-        return view('home.user_shopcart',['data'=>$data]);
+        return view('home.user_shopcart',['data'=>$data,'setting'=>$setting]);
     }
 
     /**

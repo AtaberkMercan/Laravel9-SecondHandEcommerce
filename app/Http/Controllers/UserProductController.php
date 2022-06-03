@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,8 +16,9 @@ class UserProductController extends Controller
      */
     public function index()
     {
+        $setting=Setting::first();
         $data=Product::where('user_id',Auth::id())->get();
-        return view('home.user_Product',['data'=>$data]);
+        return view('home.user_Product',['data'=>$data,'setting'=>$setting]);
     }
 
     /**
@@ -26,8 +28,9 @@ class UserProductController extends Controller
      */
     public function create()
     {
+        $setting=Setting::first();
         $data=Category::all();
-        return view('home.user_Product_create',['data'=>$data]);
+        return view('home.user_Product_create',['data'=>$data,'setting'=>$setting]);
 
     }
 
@@ -67,8 +70,9 @@ class UserProductController extends Controller
      */
     public function show(Product $product,$id)
     {
+        $setting=Setting::first();
         $data=Product::find($id);
-        return view('home.user_Product_show',['data'=>$data]);
+        return view('home.user_Product_show',['data'=>$data,'setting'=>$setting]);
     }
 
     /**
@@ -79,9 +83,10 @@ class UserProductController extends Controller
      */
     public function edit(Product $product,$id)
     {
+        $setting=Setting::first();
         $data=Product::find($id);
         $datalist=Category::all();
-        return view('home.user_Product_edit',['data'=>$data,'datalist'=>$datalist]);
+        return view('home.user_Product_edit',['data'=>$data,'datalist'=>$datalist,'setting'=>$setting]);
     }
 
     /**

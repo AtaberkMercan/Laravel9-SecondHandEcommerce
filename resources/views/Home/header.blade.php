@@ -5,9 +5,9 @@
             <div class="d-inline-flex align-items-center">
                 <a class="text-dark" href="{{route('faq')}}">FAQs</a>
                 <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Help</a>
+                <a class="text-dark" href="{{route('contact')}}">Help</a>
                 <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Support</a>
+                <a class="text-dark" href="{{route('contact')}}">Support</a>
             </div>
         </div>
         <div class="col-lg-6 text-center text-lg-right">
@@ -33,20 +33,10 @@
     <div class="row align-items-center py-3 px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a href="{{route('home')}}" class="text-decoration-none">
-                <h1 class="m-0 diplay-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                <h1 class="m-0 diplay-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">2nd</span>Sales</h1>
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
-            <form action="">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for products">
-                    <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                    </div>
-                </div>
-            </form>
             @include('home.messages')
         </div>
         <div class="col-lg-3 col-6 text-right">

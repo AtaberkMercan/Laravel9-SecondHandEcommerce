@@ -176,7 +176,11 @@
                                 </div>
                                 <div class="card-footer d-flex justify-content-between bg-light border">
                                     <a href="{{route('product',['id'=>$rs->id])}}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                                    <form action="{{route('user.shopcart.store',['id'=>$rs->id])}}" method="post">
+                                        @csrf
+                                        <input  name="quantity" type="hidden" class="form-control bg-secondary text-center" value="1">
+                                        <button type="submit" class="btn btn-sm text-dark p-0"><i class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

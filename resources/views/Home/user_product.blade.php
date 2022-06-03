@@ -18,11 +18,10 @@
     <!-- Page Header End -->
     <!-- Contact Start -->
     <div class="container-fluid pt-5">
-        <div class="row px-xl-5">
-            <div class="col-lg-3 col-md-12">
+        <div class="row px-xl-1">
+            <div class="col-lg-2 col-md-12">
                 @include('home.usermenu')
             </div>
-
             <div class="col-lg-9 col-md-12">
                 <table id="example1" class="table table-bordered ">
                     <thead>

@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopcartController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\UserProductController;
@@ -145,6 +146,16 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function (){
         Route::get('/','index')->name('index');
         Route::post('/store/{id}','store')->name('store');
         Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+    });
+        //****************************ORDERS***************************************//
+    Route::prefix('/order')->name('order.')->controller(OrderController::class)->group(function (){
+        Route::get('/','index')->name('index');
+        Route::post('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/show/{id}','show')->name('show');
         Route::get('/destroy/{id}','destroy')->name('destroy');
     });
 
