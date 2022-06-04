@@ -7,6 +7,7 @@
                 <a class="text-dark mb-2" href="{{route('myaccount.myreviews')}}"><i class="fa fa-angle-right mr-2"></i>My Reviews</a>
                 <a class="text-dark mb-2" href="{{route('user.shopcart.index')}}"><i class="fa fa-angle-right mr-2"></i>My Shopcart</a>
                 <a class="text-dark mb-2" href="{{route('user.Product.index')}}"><i class="fa fa-angle-right mr-2"></i>My Products</a>
+                <a class="text-dark mb-2" href="{{route('user.sales.index')}}"><i class="fa fa-angle-right mr-2"></i>My Sales</a>
                 <a class="text-dark" href="{{route('logoutuser')}}"><i class="fa fa-angle-right mr-2"></i>Logout</a>
             </div>
 

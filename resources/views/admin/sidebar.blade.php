@@ -73,11 +73,13 @@
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="auth" style="">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="/">New Orders </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="/">Accepted Orders</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="/">Shipping Orders</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="/">Completed Orders</a></li>
+                <ul class="nav-item menu-items">
+                    <li class="nav-item"> <a class="nav-link " href="{{route('admin.order.index')}}">All Orders </a></li>
+                    <li class="nav-item"> <a class="nav-link " href="{{route('admin.order.list',['status'=>'new'])}}">New Orders </a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.order.list',['status'=>'accepted'])}}">Accepted Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.order.list',['status'=>'shipping'])}}">Shipping Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.order.list',['status'=>'completed'])}}">Completed Orders</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.order.list',['status'=>'canceled'])}}">Canceled Orders</a></li>
                 </ul>
             </div>
         </li>

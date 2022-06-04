@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPanel\AdminHomeController;
+use App\Http\Controllers\AdminPanel\AdminOrderController;
 use App\Http\Controllers\AdminPanel\AdminProductController;
 use App\Http\Controllers\AdminPanel\AdminUserController;
 use App\Http\Controllers\AdminPanel\CategoryController;
@@ -115,6 +116,18 @@ use Illuminate\Support\Facades\Route;
             Route::post('/addrole/{id}','addrole')->name('addrole');
             Route::get('/destroyrole/{uid}/{rid}','destroyrole')->name('destroyrole');
         });
+        //****************************ORDERS***************************************//
+        Route::prefix('/order')->name('order.')->controller(AdminOrderController::class)->group(function (){
+            Route::get('/','index')->name('index');
+            Route::post('/create','create')->name('create');
+            Route::post('/store','store')->name('store');
+            Route::get('/edit/{id}','edit')->name('edit');
+            Route::get('/list/{status}','list')->name('list');
+            Route::post('/update/{id}','update')->name('update');
+            Route::post('/itemupdate/{id}','itemupdate')->name('itemupdate');
+            Route::get('/show/{id}','show')->name('show');
+            Route::get('/destroy/{id}','destroy')->name('destroy');
+        });
 
 });
 //********************************USER PANEL AUTH ROUTES ***********************//
@@ -155,6 +168,17 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function (){
         Route::post('/store','store')->name('store');
         Route::get('/edit/{id}','edit')->name('edit');
         Route::post('/update/{id}','update')->name('update');
+        Route::get('/show/{id}','show')->name('show');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
+    });
+    Route::prefix('/sales')->name('sales.')->controller(AdminOrderController::class)->group(function (){
+        Route::get('/','index')->name('index');
+        Route::post('/create','create')->name('create');
+        Route::post('/store','store')->name('store');
+        Route::get('/edit/{id}','edit')->name('edit');
+        Route::get('/list/{status}','list')->name('list');
+        Route::post('/update/{id}','update')->name('update');
+        Route::post('/itemupdate/{id}','itemupdate')->name('itemupdate');
         Route::get('/show/{id}','show')->name('show');
         Route::get('/destroy/{id}','destroy')->name('destroy');
     });

@@ -6,9 +6,9 @@
                 <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">2nd</span>Sales</h1>
             </a>
             <p>Best Second Hand E-Commerce WebSite On The Planet.</p>
-            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>{{$setting->adress}}</p>
-            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>{{$setting->email}}</p>
-            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>{{$setting->phone}}</p>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i></p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i></p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i></p>
         </div>
         <div class="col-lg-8 col-md-12">
             <div class="row">
@@ -28,9 +28,9 @@
     <div class="row border-top border-light mx-xl-5 py-4">
         <div class="col-md-6 px-xl-0">
             <p class="mb-md-0 text-center text-md-left text-dark">
-                &copy; <a class="text-dark font-weight-semi-bold" href="{{route('home')}}">{{$setting->title}}</a>. All Rights Reserved. Designed
+                &copy; <a class="text-dark font-weight-semi-bold" href="{{route('home')}}"></a>. All Rights Reserved. Designed
                 by
-                <a class="text-dark font-weight-semi-bold" href="{{route('about')}}">{{$setting->company}}</a>
+                <a class="text-dark font-weight-semi-bold" href="{{route('about')}}"></a>
             </p>
         </div>
         <div class="col-md-6 px-xl-0 text-center text-md-right">
