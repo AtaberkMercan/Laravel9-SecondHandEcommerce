@@ -13,7 +13,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShopcartController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\UserImageController;
 use App\Http\Controllers\UserProductController;
+use App\Http\Controllers\UserSalesController;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -149,7 +151,7 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function (){
         Route::get('/destroy/{id}','destroy')->name('destroy');
     });
         //********************************USER PANEL IMAGE GALLERY***********************//
-        Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function (){
+        Route::prefix('/image')->name('image.')->controller(UserImageController::class)->group(function (){
         Route::get('/{pid}','index')->name('index');
         Route::post('/store/{pid}','store')->name('store');
         Route::get('/destroy/{pid}/{id}','destroy')->name('destroy');
@@ -171,7 +173,8 @@ Route::middleware('auth')->prefix('user')->name('user.')->group(function (){
         Route::get('/show/{id}','show')->name('show');
         Route::get('/destroy/{id}','destroy')->name('destroy');
     });
-    Route::prefix('/sales')->name('sales.')->controller(AdminOrderController::class)->group(function (){
+         //*************************************Sales********************************//
+    Route::prefix('/sales')->name('sales.')->controller(UserSalesController::class)->group(function (){
         Route::get('/','index')->name('index');
         Route::post('/create','create')->name('create');
         Route::post('/store','store')->name('store');

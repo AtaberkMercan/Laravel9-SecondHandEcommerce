@@ -23,7 +23,40 @@
                 @include('home.usermenu')
             </div>
             <div class="col-lg-9 col-md-12">
-
+                <table id="example1" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th> # </th>
+                        <th> Name </th>
+                        <th> Address </th>
+                        <th> Phone Number </th>
+                        <th> Product_id </th>
+                        <th> Price </th>
+                        <th> Quantity </th>
+                        <th> Amount </th>
+                        <th> Note </th>
+                        <th> Date</th>
+                        <th>Status </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($saleslist as $rs)
+                        <tr>
+                            <td>{{$rs->id}}</td>
+                            <td>{{$rs->name}}</td>
+                            <td>{{$rs->address}}</td>
+                            <td>{{$rs->phone}}</td>
+                            <td>{{$rs->title}}</td>
+                            <td>${{$rs->price}}</td>
+                            <td>{{$rs->quantity}}</td>
+                            <td>${{$rs->amount}}</td>
+                            <td>{{$rs->note}}</td>
+                            <td>{{$rs->created_at}}</td>
+                            <td>{{$rs->status}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
