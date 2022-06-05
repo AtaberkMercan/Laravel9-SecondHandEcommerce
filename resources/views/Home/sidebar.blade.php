@@ -33,9 +33,14 @@ $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
                 <div class="navbar-nav mr-auto py-0">
                     <a href="{{route('home')}}" class="nav-item nav-link active">Home</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">User Profile</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">User</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="{{route('myaccount.myprofile')}}" class="nav-item nav-link">User Panel</a>
+                            <a href="{{route('myaccount.myprofile')}}" class="nav-item nav-link">My Profile</a>
+                            <a href="{{route('user.order.index')}}" class="nav-item nav-link">My Orders</a>
+                            <a href="{{route('myaccount.myreviews')}}" class="nav-item nav-link">My Reviews</a>
+                            <a href="{{route('user.shopcart.index')}}" class="nav-item nav-link">My Shopcart</a>
+                            <a href="{{route('user.Product.index')}}" class="nav-item nav-link">My Products</a>
+                            <a href="{{route('user.sales.index')}}" class="nav-item nav-link">My Sales</a>
                         </div>
                     </div>
                     <div class="navbar-nav ml-auto py-0">

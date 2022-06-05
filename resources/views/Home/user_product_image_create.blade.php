@@ -45,13 +45,13 @@
                             <h4 class="card-title">Prdoduct Image Gallery</h4>
                             <p class="card-description">List</p>
                             <div class="table-responsive">
-                                <table class="table-striped table-bordered">
+                                <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th> <button type="button" class="btn btn-dark btn-fw">Id Number</button> </th>
-                                        <th> <button type="button" class="btn btn-dark btn-fw">Title</button> </th>
-                                        <th> <button type="button" class="btn btn-dark btn-fw">Image</button> </th>
-                                        <th><button type="button" class="btn btn-dark btn-fw">Delete</button></th>
+                                        <th> Id Number </th>
+                                        <th>Title</th>
+                                        <th> Image </th>
+                                        <th>Delete</th>
 
                                     </tr>
                                     </thead>

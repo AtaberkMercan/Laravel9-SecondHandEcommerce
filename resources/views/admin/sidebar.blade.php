@@ -124,13 +124,6 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/social">
-        <span class="menu-icon">
-          <i class="mdi mdi-mail-ru"></i>
-        </span> <span class="menu-title">Social</span>
-            </a>
-        </li>
-        <li class="nav-item menu-items">
             <a class="nav-link" href="/admin/user">
         <span class="menu-icon">
           <i class="mdi mdi-account-box"></i>
